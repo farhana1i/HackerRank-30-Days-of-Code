@@ -1,0 +1,36 @@
+int main() {
+    
+    unsigned int numOffriends = 0;
+    std::cin>>numOffriends;
+    
+    map<string, unsigned int> friendList;
+
+    // build phone list    
+    for(unsigned int i=0; i<numOffriends; ++i){
+        string name = "";
+        unsigned int phoneNum = 0; 
+        std::cin>>name;
+        std::cin>>phoneNum;
+         
+        friendList[name] = phoneNum;
+    }
+    
+    // queries
+    while(true)
+    {
+        string name = "";
+        std::cin>>name;
+        if(name == "" || name == "\n") break;
+        
+        if(friendList.find(name) == friendList.end()){
+            std::cout<<"Not found";
+        }
+        else{
+            std::cout<<name<<"="<<friendList.find(name)->second;
+        }
+        
+        std::cout<<std::endl;
+    }
+    
+    return 0;
+}
