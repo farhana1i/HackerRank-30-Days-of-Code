@@ -1,0 +1,19 @@
+void printTable(int number)
+{
+    for(unsigned int i = 1; i<=10; ++i)
+    {
+        std::cout << number << " x " << i << " = " << (i*number) << std::endl;
+    }
+}
+
+
+int main()
+{
+    int n;
+    cin >> n;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    
+    printTable(n);
+
+    return 0;
+}
