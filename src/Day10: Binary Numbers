@@ -1,0 +1,31 @@
+// return maximum consecutives in binary of a decimal num
+int maxConsecOnesInBinary(int number){
+    int maxOnes = 0;
+    
+    int consecutiveOnes = 0;
+    int remainder = 0;
+    while(number != 0)
+    {
+        remainder = number%2;
+        number /= 2;
+        
+        if(remainder == 1) consecutiveOnes++;
+        else consecutiveOnes = 0;
+        
+        if(consecutiveOnes > maxOnes) maxOnes = consecutiveOnes;
+    }
+    return maxOnes;
+}
+
+
+int main()
+{
+    int n;
+    cin >> n;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    int maxOnes = maxConsecOnesInBinary(n);
+    std::cout<<maxOnes;
+
+    return 0;
+}
