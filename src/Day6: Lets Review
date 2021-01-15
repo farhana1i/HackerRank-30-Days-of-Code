@@ -1,0 +1,26 @@
+int main() {
+    
+    int testCases = 0;
+    std::cin>>testCases;
+    
+    for(unsigned int testNum = 1; testNum <= testCases; ++testNum)
+    {
+        string str = "";
+        std::cin>>str;
+    
+        // to print even-indexed characters
+        for(unsigned int i=0; i<str.size(); i+=2){
+            std::cout<<str[i];
+        }
+        
+        std::cout<<" ";
+        
+        // to print odd-indexed characters
+        for(unsigned int i=1; i<str.size(); i+=2){
+            std::cout<<str[i];
+        }
+        
+        std::cout<<std::endl;
+    }    
+    return 0;
+}
