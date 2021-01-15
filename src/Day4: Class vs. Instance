@@ -1,0 +1,33 @@
+class Person
+{
+    public:
+        int age;
+        Person(int initialAge);
+        void amIOld();
+        void yearPasses();
+    };
+
+    Person::Person(int initialAge){
+        if(initialAge < 0){
+            std::cout<<"Age is not valid, setting age to 0.\n";
+            this->age = 0;
+        }
+        else{
+            this->age = initialAge;
+        }
+
+    }
+
+    void Person::amIOld()
+    {
+        if(this->age < 13) std::cout<<"You are young.";
+        else if(this->age < 18) std::cout<<"You are a teenager.";
+        else std::cout<<"You are old.";
+        
+        std::cout<<std::endl;
+    }
+
+    void Person::yearPasses(){
+        this->age++;
+
+    }
