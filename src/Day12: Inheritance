@@ -1,0 +1,33 @@
+class Student :  public Person
+{
+	private:
+		vector<int> testScores;  
+	public:
+         //constructor
+         Student(string firstName, string lastName, int id, vector<int> scores)
+        :Person(firstName, lastName, id){
+            this->testScores = scores;
+        }
+    
+        // to calculate grade according to grading scale
+        char calculate()
+        {    
+            int totalScore = 0;
+            for(auto score: this->testScores){
+                totalScore += score;
+            }
+            
+            float average = float(totalScore)/float(this->testScores.size());
+            
+            // return grade according to average
+            if(average <= 100 && average >= 90) return 'O';
+            if(average <  90  && average >= 80) return 'E';
+            if(average <  80  && average >= 70) return 'A';
+            if(average <  70  && average >= 55) return 'P';
+            if(average <  55  && average >= 40) return 'D';
+            if(average <  40) return 'T';
+            
+            
+            return '\0';
+        }
+};
