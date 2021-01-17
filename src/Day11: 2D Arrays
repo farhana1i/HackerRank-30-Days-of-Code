@@ -1,0 +1,41 @@
+// to return maximum hourglass sum
+int maxHourglassSum(const vector<vector<int>> matrix)
+{
+    int maxSum = INT32_MIN;     // to store maximum hourglass sum
+
+    for(unsigned int i=0; i<matrix.size()-2; ++i)
+    {    
+        for(unsigned int j=0; j<matrix.size()-2; ++j)
+        {
+            // to save current hourglass sum
+            int hourglassSum = matrix[i][j] + matrix[i][j+1] + matrix[i][j+2] +
+            matrix[i+1][j+1] + matrix[i+2][j] + matrix[i+2][j+1] + matrix[i+2][j+2];
+            
+            if(hourglassSum > maxSum){
+                maxSum = hourglassSum;
+            }
+        }
+    }
+    
+    return maxSum;
+}
+
+
+
+int main()
+{
+    vector<vector<int>> arr(6);
+    for (int i = 0; i < 6; i++) {
+        arr[i].resize(6);
+
+        for (int j = 0; j < 6; j++) {
+            cin >> arr[i][j];
+        }
+
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
+
+    std::cout<<maxHourglassSum(arr);
+
+    return 0;
+}
