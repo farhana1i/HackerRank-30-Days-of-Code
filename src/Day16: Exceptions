@@ -1,0 +1,7 @@
+try{
+     std::cout<<stoi(S);
+}
+
+catch(exception){
+    std::cout<<"Bad String";
+}
