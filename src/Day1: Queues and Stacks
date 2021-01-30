@@ -1,0 +1,26 @@
+class Solution {
+    vector<char> stack;    
+    vector<char> que;
+public:
+    
+    void pushCharacter(char ch){
+        this->stack.push_back(ch);
+    }
+    char popCharacter()
+    {
+        char retChar = this->stack.back();
+        this->stack.pop_back();        
+        return retChar;
+    }
+    
+    void enqueueCharacter(char ch){
+        this->que.push_back(ch);
+    }
+    char dequeueCharacter(){
+        char retChar = this->que.front();
+        this->que.erase(this->que.begin());
+        
+        return retChar;
+    }
+    
+};
