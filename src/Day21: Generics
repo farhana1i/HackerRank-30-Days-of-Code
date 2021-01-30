@@ -1,0 +1,8 @@
+
+template <class Type>
+void printArray(vector<Type> array){
+    
+    for(auto element: array){
+        cout<<element<<endl;
+    }
+}
