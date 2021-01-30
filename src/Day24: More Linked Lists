@@ -1,0 +1,29 @@
+    Node* removeDuplicates(Node *head)
+        {
+            if(head == nullptr) return nullptr;
+            
+            Node* ith = head;
+            while(ith != nullptr){
+            
+                Node* jth = ith->next;
+                Node* prev = ith;      // node before jth node
+            
+                while(jth != nullptr){
+            
+                    if(ith->data == jth->data){
+                        
+                        // delete and update jth node
+                        Node* temp = jth->next;
+                        if(jth != nullptr) delete jth;
+                        jth = temp;
+                        prev->next = jth;
+                    }
+                    else{
+                        prev = prev->next;
+                        jth = jth->next;
+                    }
+                }
+                ith = ith->next;
+            }
+            return head;    
+        }
