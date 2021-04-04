@@ -1,0 +1,22 @@
+int bitwiseAnd(int N, int K) {
+    int max = INT32_MIN;
+    
+    // S is set of first N natural numbers
+    vector<int> S;
+    for(int i = 0; i < N; ++i)
+        S.push_back(i + 1);
+    
+    
+    for(int i = 0; i < S.size(); ++i){
+        for(int j = i + 1; j < S.size(); ++j){
+            
+            int res = S[i] & S[j];
+            
+            if(res < K && res > max){
+                max = (S[i] & S[j]);
+            }
+        }
+    }
+    
+    return max;
+}
