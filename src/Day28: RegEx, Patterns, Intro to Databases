@@ -1,0 +1,36 @@
+int main()
+{
+    int N;
+    cin >> N;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    std::vector<std::string> nameList;
+    
+    const std::regex rgx("(\\w+)(\\.|_)?(\\w*)@gmail.com");        // for email validation
+
+    for (int N_itr = 0; N_itr < N; N_itr++) {
+        string firstNameEmailID_temp;
+        getline(cin, firstNameEmailID_temp);
+
+        vector<string> firstNameEmailID = split_string(firstNameEmailID_temp);
+
+        string firstName = firstNameEmailID[0];
+
+        string emailID = firstNameEmailID[1];
+    
+    
+        if(std::regex_match(emailID, rgx)){
+            nameList.push_back(firstName);            
+        }
+        
+
+    }
+    sort(nameList.begin(), nameList.end());
+    
+    
+    for(auto name: nameList){
+        std::cout<<name<<std::endl;
+    }
+
+    return 0;
+}
